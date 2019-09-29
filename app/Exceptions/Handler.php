@@ -46,6 +46,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        // for changing Oauth error structure... also uncomment AppServiceProvider line in register method
+        // $class = get_class($exception);
+        // if($class == 'League\OAuth2\Server\Exception\OAuthServerException'){
+        //     return response()->json([
+        //       'code'=>$exception->getHttpStatusCode(),
+        //       'error'=>$exception->getMessage(),
+        //       'error_type'=>$exception->getErrorType()
+        //     ],$exception->getHttpStatusCode());
+        // } 
+
         return parent::render($request, $exception);
     }
 }

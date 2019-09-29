@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\AccessTokenController as AppAccessTokenController;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Passport\Http\Controllers\AccessTokenController;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // for changing Oauth error structure... also uncomment exceptions/Handler.php render method codes
+        // $this->app->bind( AccessTokenController::class, AppAccessTokenController::class);
     }
 
     /**
